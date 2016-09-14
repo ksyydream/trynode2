@@ -19,7 +19,7 @@ class Index extends MY_Controller {
 
     public function index($page=1) {
 
-       echo "hello world!";
+       echo "hello world! nodejs";
        die();
     }
 
