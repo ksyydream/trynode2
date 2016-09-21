@@ -1,10 +1,10 @@
 
-var express = require('express');
+/*var express = require('express');
 var app = express();
 app.use(express.static(__dirname));
-var server = app.listen(8182);
+var server = app.listen(8182);*/
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(8182);
 console.log('server start');
 io.sockets.on('connection',function(socket){
     console.log('chat start');
