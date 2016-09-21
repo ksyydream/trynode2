@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import url('block/reset.css');
+@import url('block/common.css');
+
+#login{padding-top:50px;}
+.header{margin-bottom: 60px;}
+.header .logo a{margin-right: 30px;}
+.wel-login-txt{ margin:5px 0;padding-left:25px;float: left; height: 41px;  line-height:41px;border-left: 2px solid #b3b3b3; font-size: 20px; color: #999;}
+
+.login-content{padding:15px 0 35px;width:315px; float:left;border:1px solid #dedede; border-top-color: #ff4400;}
+.login-head{margin:0 35px 38px; font-size: 16px; color:#000; text-align: center; border-bottom: 1px solid #dedede; line-height: 34px;display:block;}
+
+.input-box{margin-left:35px;overflow: hidden; zoom:1;margin-bottom: 22px;}
+.input-box .onFocus,.register-content .onFocus{border-color: #74b9f0;-webkit-box-shadow:1px 1px 6px #dae7fd,-1px -1px 6px #dae7fd; -moz-box-shadow:1px 1px 6px #dae7fd,-1px -1px 6px #dae7fd;box-shadow:1px 1px 6px #dae7fd,-1px -1px 6px #dae7fd;}
+.input-box .error-bor,.register-content .error-bor{ border-color: #ff7f7f;}
+.error-tip,.register-content .error-tip{color: #ff7f7f;font-size: 12px; display: none;}
+.user-icon-name,.user-icon-pwd{border: 1px solid #dedede;border-right:0;width:35px; height: 35px; background: url(../images/icon3_1.png) no-repeat 0 -398px; float: left; vertical-align: middle;}
+.user-icon-pwd{background-position:0 -435px;}
+.account-name,.account-pwd{padding:9px;vertical-align: middle;border: 1px solid #dedede;border-left:0; width: 200px;}
+
+.account-other{font-size: 14px; color: #666; padding:0 35px; margin-bottom: 35px;}
+.account-other .mr80{ display: inline-block; margin-right: 80px;}
+.sub-btn{ display: block; width: 250px; height: 37px; background: #ff4400; font-size: 16px; color: #fff; text-align: center; line-height: 37px; border-radius: 5px;border: none;}
+.login-content .sub-btn{ margin:0 auto; }
+.register-content .sub-btn{margin-top: 20px; }
+.sub-btn:hover{color: #fff;}
+/*-----------注册---------------*/
+.register-main{border: 1px solid #dedede; border-top-color: #ff4400;}
+.register-content{padding:40px 0 40px 230px; width: 600px;}
+.register-content th{padding:7px 10px 7px 0;width:105px; text-align: right; color: #999; font-size: 16px; font-weight: normal;}
+.register-content td{padding:7px 0;vertical-align: middle; font-size: 16px; 
+text-align: left;}
+.register-content td label{font-size: 14px;}
+.register-content td span {font-size: 12px;}
+.register-content td i{float: left; width: 35px; height: 35px; background: url(../images/icon3_1.png) no-repeat; border-left: none;}
+.register-content .reg-icon-name{background-position: -56px -290px;}
+.register-content .reg-icon-pwd{background-position: -56px -327px;}
+.reg-name,.reg-pwd,.reg-pwd-confirm{float: left;padding:9px 0 9px 10px; width:245px;border:none; }
+.reg-input{ display: block;border: 1px solid #dedede;}
+
+.reg-verifi-code{padding:10px 0 9px 10px; width:245px;border: 1px solid #dedede; display: inline-block; margin-right: 10px; float: left;}
+.show-code{float: left;display: inline-block; margin-right: 5px;}
+.change-next-a,.change-next-a:hover{ text-decoration: underline; line-height: 34px;}
+.check-box{ *vertical-align:middle;_vertical-align:middle; width: 12px; height: 12px; margin-right: 3px;}
+.register-content td .color2{ color: #005aa0;}

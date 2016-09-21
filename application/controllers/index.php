@@ -23,5 +23,19 @@ class Index extends MY_Controller {
        die();
     }
 
+    public function chat_login(){
+        $this->load->view('chat_login');
+    }
+
+    public function chat($name){
+        if(!$name){
+            redirect(site_url('/index/chat_login'));
+        }
+        $data['name'] = $name;
+        $this->load->view('chat',$data);
+    }
+
+
+
 
 }
