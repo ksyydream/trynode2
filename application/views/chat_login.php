@@ -50,7 +50,7 @@
 <script src="/js/jquery-1.8.3.min.js"></script>
 <script src="/chat/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 <script>
-    var socket = io.connect('http://192.168.1.110:8182');
+    var socket = io.connect('http://121.40.97.183:8182');
     socket.on('disconnect',function(){
        alert('连接失败');
     });
