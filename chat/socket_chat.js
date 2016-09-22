@@ -5,10 +5,17 @@ app.use(express.static(__dirname));
 var server = app.listen(8182);*/
 
 var io = require('socket.io').listen(8182);
+var renshu = 0;
 //console.log('server start');
 io.sockets.on('connection',function(socket){
     //console.log('chat start');
 
+    socket.on('disconnect',function(){
+        if(socket.ykname){
+            renshu = renshu -1;
+            socket.emit('renshu',{renshu:renshu});
+        }
+    })
     socket.on('other event',function(data){
         //console.log(data);
     })
@@ -28,6 +35,8 @@ io.sockets.on('connection',function(socket){
         var flag = check(data.name);
         if (flag == 1){
             socket.ykname = data.name;
+            renshu = renshu + 1;
+            socket.emit('renshu',{renshu:renshu});
             //console.log('成功进入聊天室:'+data.name);
         }else{
             socket.emit('back_login');

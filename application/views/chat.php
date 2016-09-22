@@ -40,11 +40,13 @@
     <!------------头部start-------------->
     <div style="margin: auto 0" class="header clearfix">
         <span class="wel-login-txt">欢迎 <ykname id="ykname"><?php echo $name ?></ykname> 登录</span>
+
     </div>
+    <div style="width: 200px">当前 <flag id="renshu">0</flag> 人在线</div>
     <!--------------头部end---------------->
     <div id="send_div2" style=" height:400px;width:90%;margin: auto 0; overflow:auto" class="login-main clearfix">
         <ul id="send_ul">
-            <li>[admin]:你好!</li>
+            <li>[系统管理员]:欢迎登陆!</li>
         </ul>
 
     </div>
@@ -77,6 +79,9 @@
         $("#send_ul").append("<li>[" +  data.user +"]:" + data.message + "</li>");
     });
 
+    socket.on('renshu',function(data){
+        $("#renshu").html(data.renshu);
+    });
     $("#btn_send").click(function(){
         socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
         $("#send_ul").append("<li>"+ "[我说]:"+$("#message").val() +"</li>");
