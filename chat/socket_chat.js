@@ -13,7 +13,7 @@ io.sockets.on('connection',function(socket){
     socket.on('disconnect',function(){
         if(socket.ykname){
             renshu = renshu -1;
-            socket.emit('renshu',{renshu:renshu});
+            io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
         }
     })
     socket.on('other event',function(data){
@@ -36,7 +36,7 @@ io.sockets.on('connection',function(socket){
         if (flag == 1){
             socket.ykname = data.name;
             renshu = renshu + 1;
-            socket.emit('renshu',{renshu:renshu});
+            io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
             //console.log('成功进入聊天室:'+data.name);
         }else{
             socket.emit('back_login');
