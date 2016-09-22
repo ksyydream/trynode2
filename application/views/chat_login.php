@@ -19,7 +19,7 @@
         <img src="/images/hlw.jpg" alt="" width="750" height="340" class="fl" />
         <div class="login-content">
             <span class="login-head">用户登录</span>
-        <form method="post">
+        <form id="login_form" method="post" action="/index/chat">
             <div class="input-box">
                 <i class="user-icon-name"></i>
                 <input class="account-name" type="text" id="username" placeholder="手机号/会员名/邮箱" name="username"/> <!-- error-bor -->
@@ -75,7 +75,7 @@
     socket.on('back_name',function(data){
         if(data.back == 1){
             //alert("/index.php/index/chat/"+$("#username").val());
-            window.location.href="/index/chat/"+$("#username").val();
+            $("#login_form").submit();
         }else{
             alert('名称存在');
         }

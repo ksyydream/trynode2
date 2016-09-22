@@ -1,10 +1,8 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>杨洋的聊天室</title>
-    <meta name="keywords" content="昆山" />
-    <meta name="description" content="" />
     <link href="/css/login.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .login-main {
@@ -46,7 +44,7 @@
     <!--------------头部end---------------->
     <div id="send_div2" style=" height:400px;width:90%;margin: auto 0; overflow:auto" class="login-main clearfix">
         <ul id="send_ul">
-            <li>[系统管理员]:欢迎登陆!</li>
+            <li>[系统管理员]:欢迎登陆!<?php echo $name ?></li>
         </ul>
 
     </div>

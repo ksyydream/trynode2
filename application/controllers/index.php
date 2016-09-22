@@ -27,7 +27,8 @@ class Index extends MY_Controller {
         $this->load->view('chat_login');
     }
 
-    public function chat($name){
+    public function chat(){
+        $name = $this->input->post('username');
         if(!$name || $name == "我说"){
             redirect(site_url('/index/chat_login'));
         }
