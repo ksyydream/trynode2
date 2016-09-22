@@ -74,15 +74,19 @@
         window.location.href="/index/chat_login/";
     });
     socket.on('news',function(data){
-        $("#send_ul").append("<li>[" +  data.user +"]:" + data.message + "</li>");
+        var d = new Date()
+        var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
+        $("#send_ul").prepend("<li>"+ timestr +" [" +  data.user +"]:" + data.message + "</li>");
     });
 
     socket.on('renshu',function(data){
         $("#renshu").html(data.renshu);
     });
     $("#btn_send").click(function(){
+        var d = new Date()
+        var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
         socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
-        $("#send_ul").append("<li>"+ "[我说]:"+$("#message").val() +"</li>");
+        $("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
     })
 
 </script>
