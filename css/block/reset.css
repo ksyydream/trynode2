@@ -1,0 +1,26 @@
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;}
+html{-webkit-text-size-adjust:none;}
+body{background:#fff;font:12px/2em Microsoft Yahei,tahoma,HELVETICA;color:#333;}
+ol,ul{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img{border:none;vertical-align:top;
+	-webkit-transition: opacity .2s;
+	-moz-transition: opacity .2s;
+	-o-transition: opacity .2s;
+	transition: opacity .2s;
+	-ms-transition: none;
+}
+i,em{font-style:normal;}
+input,select,option,textarea{font-size:12px; font-family: Microsoft Yahei,tahoma,HELVETICA;outline:none;}
+a{color:#999;text-decoration:none;}
+a:hover{color:#ff4400;text-decoration:none;}
+a:hover em,a:hover b, a:hover i, a:hover span {cursor:pointer;}
+.hidden{display:none;}
+.clearfix{*zoom:1}.clearfix:after{content:"\20";clear:both;height:0;display:block;overflow:hidden;}
+.fl{ float: left;}.fr{float: right;}
+.fz10{ font-size: 10px;transform:scale(0.875);}
+.fz14{font-size:14px;}.fz16{font-size:16px;}.fz20{font-size:20px;}
+.red{ color: #ff4400;}.blue{ color:#3388b4;}.color666{color: #666;}
+.mt10{margin-top: 10px;}
+.mb25{margin-bottom: 25px;}

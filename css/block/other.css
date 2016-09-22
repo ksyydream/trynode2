@@ -1,0 +1,13 @@
+/*lay*/
+.lay965{width:965px; float:right; }
+
+/* aPic */
+.aPic{ float:left; position:relative;}
+.aPic .iTit{padding:0 5px; display:block; position:absolute;left:0; bottom:0; line-height:22px; background:rgba(255,255,255,0.8); filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CCFFFFFF, endColorStr=#CCFFFFFF);}
+.aPicW128{width:128px;}
+.aPicW128 .iTit{width:118px; height:45px; color:#070707;}
+.aPicW128:hover .iTit{color:#ff4400;}
+.aPicW270{width:270px;}
+.aPicW270 .iTit{padding:0 8px;padding-top:12px;width:254px; height:48px; color:#fff; font-size:14px; background:rgba(0,0,0,0.8);filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#CC000000, endColorStr=#CC000000);}
+
+.aPicW270:hover .iTit{color:#ff4400;}

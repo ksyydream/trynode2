@@ -28,7 +28,7 @@ class Index extends MY_Controller {
     }
 
     public function chat($name){
-        if(!$name){
+        if(!$name || $name == "我说"){
             redirect(site_url('/index/chat_login'));
         }
         $data['name'] = $name;

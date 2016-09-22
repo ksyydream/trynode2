@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/* 公共 */
+.header,.wraper,.ft-inner {width:1180px; margin: 0 auto;text-align:left;zoom:1;}
+.header,.wraper{background-color:#fff; }
+.wraper{padding-top:10px;}
+
+/* 广告 */
+.ivy-1180{margin-bottom:25px;}
+
+/*头部*/
+.header{margin-bottom:25px;}
+.header .logo a{ background:url(../../images/logo.png) no-repeat;}
+.ks-select .trag1{background:url(../../images/icon1.png) no-repeat;}
+.header .logo a{margin-right:215px;width:183px; height:51px; display:block; float:left; text-indent:-9999px;}
+/*尾部导航*/
+.footer{margin-top:85px;border-top:6px solid #d8d8d8; background:#f5f4f4; clear:both;}
+.ul-ft{padding:22px 100px 30px;}
+.ul-ft li{width:196px; float:left; line-height:22px; font-size:12px;}
+.ul-ft li .f-tit{margin-bottom:10px; font-size:16px; color:#1f1a17; display:block;}
+.ul-ft li .f-tit-ewm{margin-bottom:15px;}
+.copyright{padding:0 95px 8px 65px;}
+.f_logo{ display:block; width:147px; height:41px; float:left; background:url(../../images/logo.png) no-repeat 0 -53px;}
+.ftr-p{ float:right; line-height:22px; padding-top:20px;}
+/*快搜*/
+.ks{margin-top:8px;  float:left;border:3px solid #ff6600;}
+.ks-select{line-height:40px; width:85px; float:left; position:relative;z-index:999;}
+.ks-select .item{ display:block; padding-right:18px;text-align:center; font-size:14px;}
+.ks-select .trag1{ position:absolute; right:10px;top:18px; display:block; width:8px; height:4px; -webkit-transition:-webkit-transform .2s;
+transition:transform .2s; -webkit-transform-origin:center 20%; transform-origin:center 20%;}
+.ks-select:hover .trag1{transform:rotate(180deg);}
+
+.ks-select-pop{ width:100%;position:absolute;top:40px;left:-3px;border:3px solid #ff6600;border-top:none; background-color:#fff; z-index:999;}
+.ks-select-pop .item{ line-height:30px; color:#555; }
+.ks-select-pop .item:hover,.ks-select-pop .current,.ks-label .ks-pop  li:hover{background-color:#f4f4f4;}
+.ks-input{ float:left;height:40px;vertical-align:top; }
+.ks-label{ float:left; position:relative; zoom:1;}
+.ks-label .ks-q{padding:5px 0 5px 10px; width:425px; height:30px; line-height:30px;border:none; font-size:16px; color:#9c9c9c;float:left; background:#fff;}
+.ks-label .ks-pop{ width:100%; position:absolute; left:0; top:40px; background-color:#fff;z-index:200; overflow:hidden; z-index:999;}
+.ks-label .ks-pop ul{border:3px solid  #ff6600; position:relative; zoom:1; z-index:2; border-top:none;}
+.ks-label .ks-pop li{ height:30px; line-height:30px; padding:0 10px; overflow:hidden; font-size:14px; cursor:pointer;}
+.ks-label .ks-pop li span{margin-left:6px; float:right;}
+
+.ks-submit{width:85px; height:40px;  background:#ff6600; border:none; float:left; font-size:20px;  color:#fff; text-align:center; cursor:pointer;}
+
+/*头部导航*/
+.gobal-nav{ height:38px; border-bottom:2px solid #ff4400;}
+.nav-search{height:38px;width:212px;display:block; float:left; background-color:#ff4400;  position:relative; cursor:pointer;}
+.nav-search em{ display:block;padding-left:60px; line-height:38px; font-size:16px; color:#fff;}
+.trag1-gray-t{border-style:solid dashed dashed dashed; border-color:#fff transparent transparent;}
+.nav-search .trag2{ position:absolute;top:18px; right:65px; border-width:6px;}
+.ul-nav li{width:150px; float:left; text-align:center;border-top:1px solid #f2f2f2; border-right:1px solid #f2f2f2; position:relative;}
+.ul-nav li a{width:150px; height:37px; line-height:37px; color:#969594; font-size:14px; display:block;}
+.ul-nav .current a,.ul-nav li a:hover{ color:#ff4400;} 
+.ul-nav li a em{width:18px; height:37px;background:url(../../images/icon3_1.png) no-repeat; display:inline-block; margin-right:5px; vertical-align:middle;}
+.ul-nav li .headline em{ background-position:-21px 0;}
+.ul-nav li .housesource em{ background-position:-21px -40px;}
+.ul-nav li .housefav em{ background-position:-21px -78px;}
+.ul-nav li .housemedia em{ background-position:-21px -118px;}
+.ul-nav .current .arrow{ display:block; width:19px; height:12px; background:url(../../images/icon3_1.png) no-repeat 0 -159px; position:absolute;top:37px; left:62px;}
+.ul-nav .current .headline em,.ul-nav li .headline:hover em{ background-position:0 0;}
+.ul-nav .current .housesource em,.ul-nav li .housesource:hover em{ background-position:0 -40px;}
+.ul-nav .current .housefav em,.ul-nav li .housefav:hover em{ background-position:0 -78px;}
+.ul-nav .current .housemedia em,.ul-nav li .housemedia:hover em{ background-position:0 -118px;}
+
+.user-info{margin-top:7px; height:31px; line-height:31px; width:120px; float:right; font-size:14px;}
+.user-info a{margin-right:5px; color:#ff6600;}
+.login-logo{margin:8px 5px 0 0; float:left;background:url(../../images/icon3_1.png) no-repeat; width:13px; height:15px; background-position:-21px -156px; overflow:hidden;}
+/*面包屑*/
+.p_crumbs{padding:15px 0;font-size: 14px;color: #aba6a6;}
+.p_crumbs a{margin:0 10px;color: #aba6a6; display: inline-block;}
+.over-bg{ background: #f2f2f2;}
+

@@ -39,7 +39,6 @@
     <div class="ft-inner">
         <div class="copyright clearfix">
             <a href="" class="f_logo"></a>
-            <p class="ftr-p">2015 Funmall Co., Ltd. All rights reserved. 备案号：苏CP备13003602号-2</p>
         </div>
     </div>
 </div>
@@ -64,8 +63,13 @@
     })
 
     $("#btn_login").click(function(){
+        if($.trim($("#username").val()) == "我说"){
+            alert('名称不可用')
+        }else{
+            socket.emit('send_name',{name:$("#username").val()});
+        }
        // window.location.href="/index.php/index/index";
-        socket.emit('send_name',{name:$("#username").val()});
+
     })
 
     socket.on('back_name',function(data){
