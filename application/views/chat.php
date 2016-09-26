@@ -93,6 +93,6 @@
     })
 
     socket.on('send_all_name',function(data){
-        $("#all_name").append("<span>" + data.allname +"</span>")
+        $("#all_name").html("<span>" + data.allname +"</span>")
     })
 </script>
