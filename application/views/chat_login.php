@@ -45,17 +45,18 @@
 
 </body>
 </html>
-
 <script src="/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
 <script src="/chat/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 <script>
     var socket = io.connect('http://121.40.97.183:8182');
     //var socket = io.connect('http://localhost:8182');
     socket.on('disconnect',function(){
-       alert('连接失败');
-    });
-    socket.on('news',function(data){
-        $("#chat_div").append("<li>" +  data.message + "</li>");
+        layer.alert('连接失败', {
+            skin: 'layui-layer-lan'
+            ,closeBtn: 0
+            ,shift: 4 //动画类型
+        });
     });
 
     $("#btn_send").click(function(){
@@ -64,21 +65,24 @@
     })
 
     $("#btn_login").click(function(){
-        if($.trim($("#username").val()) == "我说"){
-            alert('名称不可用')
+        if($.trim($("#username").val())==""){
+            layer.msg('请填写名称')
         }else{
-            socket.emit('send_name',{name:$("#username").val()});
+            if($.trim($("#username").val()) == "我说"){
+                layer.msg('名称不可用');
+            }else{
+                socket.emit('send_name',{name:$("#username").val()});
+            }
         }
-       // window.location.href="/index.php/index/index";
 
+       // window.location.href="/index.php/index/index";
     })
 
     socket.on('back_name',function(data){
         if(data.back == 1){
-            //alert("/index.php/index/chat/"+$("#username").val());
             $("#login_form").submit();
         }else{
-            alert('名称存在');
+            layer.msg('名称存在');
         }
     });
 
