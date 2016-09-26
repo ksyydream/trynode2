@@ -50,6 +50,7 @@
 <script src="/chat/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 <script>
     var socket = io.connect('http://121.40.97.183:8182');
+    //var socket = io.connect('http://localhost:8182');
     socket.on('disconnect',function(){
        alert('连接失败');
     });

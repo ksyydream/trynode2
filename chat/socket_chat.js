@@ -17,6 +17,7 @@ io.sockets.on('connection',function(socket){
             renshu = renshu -1;
             renming.remove(socket.ykname);
             io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
+            io.sockets.emit('send_all_name',{allname:renming})
         }
     })
     socket.on('other event',function(data){
@@ -41,13 +42,14 @@ io.sockets.on('connection',function(socket){
             renshu = renshu + 1;
             renming.push(data.name);
             io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
+            io.sockets.emit('send_all_name',{allname:renming})
             //console.log('成功进入聊天室:'+data.name);
         }else{
             socket.emit('back_login');
         }
     })
 
-    socket.emit('send_all_name',{allname:renming})
+
 })
 
 function check(name){

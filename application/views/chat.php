@@ -68,6 +68,7 @@
 <script>
 
     var socket = io.connect('http://121.40.97.183:8182');
+    //var socket = io.connect('http://localhost:8182');
     socket.emit('send_ykname',{name:$("#ykname").html()});
     socket.on('disconnect',function(){
         alert('连接失败');
@@ -92,8 +93,6 @@
     })
 
     socket.on('send_all_name',function(data){
-        for(var name in data.allname){
-            $("#all_name").append("<span>" + name +"</span>")
-        }
+        $("#all_name").append("<span>" + data.allname +"</span>")
     })
 </script>
