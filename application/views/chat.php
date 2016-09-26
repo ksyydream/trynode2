@@ -64,6 +64,7 @@
 </body>
 </html>
 <script src="/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
 <script src="/chat/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
 <script>
 
@@ -71,7 +72,8 @@
     //var socket = io.connect('http://localhost:8182');
     socket.emit('send_ykname',{name:$("#ykname").html()});
     socket.on('disconnect',function(){
-        alert('连接失败');
+        layer.msg('连接失败')
+        window.location.href="/index/chat_login/";
     });
     socket.on('back_login',function(){
         window.location.href="/index/chat_login/";
@@ -86,11 +88,16 @@
         $("#renshu").html(data.renshu);
     });
     $("#btn_send").click(function(){
-        var d = new Date()
-        var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
-        socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
-        $("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
-        $("#message").val("");
+        if($.trim($("#message").val())==""){
+            layer.msg('请填写内容')
+        }else{
+            var d = new Date()
+            var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
+            socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
+            $("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
+            $("#message").val("");
+        }
+
     })
 
     socket.on('send_all_name',function(data){
