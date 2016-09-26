@@ -41,6 +41,8 @@
 
     </div>
     <div style="width: 200px">当前 <flag id="renshu">0</flag> 人在线</div>
+    <div id="all_name">
+    </div>
     <!--------------头部end---------------->
     <div id="send_div2" style=" height:400px;width:90%;margin: auto 0; overflow:auto" class="login-main clearfix">
         <ul id="send_ul">
@@ -89,4 +91,9 @@
         $("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
     })
 
+    socket.on('send_all_name',function(data){
+        for(var name in data.allname){
+            $("#all_name").append("<span>" + name +"</span>")
+        }
+    })
 </script>

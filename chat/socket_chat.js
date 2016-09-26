@@ -6,6 +6,8 @@ var server = app.listen(8182);*/
 
 var io = require('socket.io').listen(8182);
 var renshu = 0;
+var renming = [];
+
 //console.log('server start');
 io.sockets.on('connection',function(socket){
     //console.log('chat start');
@@ -13,6 +15,7 @@ io.sockets.on('connection',function(socket){
     socket.on('disconnect',function(){
         if(socket.ykname){
             renshu = renshu -1;
+            renming.remove(socket.ykname);
             io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
         }
     })
@@ -36,14 +39,15 @@ io.sockets.on('connection',function(socket){
         if (flag == 1){
             socket.ykname = data.name;
             renshu = renshu + 1;
+            renming.push(data.name);
             io.sockets.emit('renshu',{renshu:renshu});//给所有人发送在线人员信息
             //console.log('成功进入聊天室:'+data.name);
         }else{
             socket.emit('back_login');
         }
-
-
     })
+
+    socket.emit('send_all_name',{allname:renming})
 })
 
 function check(name){
@@ -55,3 +59,22 @@ function check(name){
     }
     return 1;
 }
+
+//扩展数组方法：查找指定元素的下标
+//author cjianquan 2016-1-14
+Array.prototype.indexOf = function(val) {
+    for (var i = 0; i < this.length; i++) {
+        if (this[i] == val) return i;
+    }
+    return -1;
+};
+
+//扩展数组方法:删除指定元素
+//author cjianquan 2016-1-14
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    while(index>-1){
+        this.splice(index, 1);
+        index = this.indexOf(val);
+    }
+};
