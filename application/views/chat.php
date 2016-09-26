@@ -90,6 +90,7 @@
         var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
         socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
         $("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
+        $("#message").val("");
     })
 
     socket.on('send_all_name',function(data){
