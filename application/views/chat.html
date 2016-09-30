@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>微店聊天窗口</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="/css/style2.css">
+</head>
+<body id="dialogue">
+<div class="g-head">
+    <!--<a href="go_back()"><i class="am-icon-chevron-left"></i></a>-->
+	<div id="all_name" style="font-size: small">
+	</div>
+	<span class="wel-login-txt">欢迎 <ykname id="ykname"><?php echo $name ?></ykname> 登录,当前 <flag id="renshu">0</flag> 人在线</span>
+
+	<!--------------头部end---------------->
+</div>
+<div class="dialogue-content" id="dialogue-content">
+
+	<div class="dialogue-detail" id="scrollCont1">
+		<div class="scroll" id="scorll">
+			<ul id="send_ul">
+				<li>[系统管理员]:欢迎登陆!<?php echo $name ?></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="word_submit">
+	<input type="text" class="input_txt" id="message" />
+	<div class="tj_btn" id="btn_send">发送</div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.scrollLoading.js"></script>
+<script type="text/javascript" src="/js/zepto.js"></script>
+<script src="/chat/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script>
+<script>
+	//模拟滚动条
+	window.myScroll = new IScroll('#scrollCont1', {
+		scrollbars: false,
+		mouseWheel: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: false
+	});
+
+	Date.prototype.format = function(format) {
+	    var date = {
+		    "M+": this.getMonth() + 1,
+		    "d+": this.getDate(),
+		    "h+": this.getHours(),
+		    "m+": this.getMinutes(),
+		    "s+": this.getSeconds(),
+		    "q+": Math.floor((this.getMonth() + 3) / 3),
+		    "S+": this.getMilliseconds()
+	    };
+	    if (/(y+)/i.test(format)) {
+	        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+	    }
+	    for (var k in date) {
+		    if (new RegExp("(" + k + ")").test(format)) {
+	        	format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+		    }
+	    }
+	    return format;
+	}
+	
+	function trim(str) {
+		return str.replace(/(^\s+)|(\s+$)/g, "");
+	}
+</script>
+<script type="text/javascript">
+	var socket = io.connect('http://121.40.97.183:8182');
+	//var socket = io.connect('http://localhost:8182');
+	socket.emit('send_ykname',{name:$("#ykname").html()});
+	socket.on('disconnect',function(){
+		layer.msg('连接失败')
+		window.location.href="/index/wxchat/";
+	});
+	socket.on('back_login',function(){
+		window.location.href="/index/wxchat/";
+	});
+	socket.on('news',function(data){
+		var d = new Date()
+		var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
+		$("#send_ul").prepend("<li>"+ timestr +" [" +  data.user +"]:" + data.message + "</li>");
+	});
+
+	socket.on('renshu',function(data){
+		$("#renshu").html(data.renshu);
+	});
+	$("#btn_send").click(function(){
+		if($.trim($("#message").val())==""){
+			layer.msg('请填写内容')
+		}else{
+			var d = new Date()
+			var timestr = d.getFullYear()+"/" + (d.getMonth()+1) +"/"+ d.getDate() +" " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
+			socket.emit('sendmsage',{message:$("#message").val(),user:$("#ykname").val()});
+			$("#send_ul").prepend("<li>"+ timestr +" [我说]:"+$("#message").val() +"</li>");
+			$("#message").val("");
+		}
+
+	})
+
+	socket.on('send_all_name',function(data){
+		$("#all_name").html("<span>" + data.allname +"</span>")
+	})
+</script>
+</body>
+</html>

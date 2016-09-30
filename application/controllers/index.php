@@ -36,7 +36,16 @@ class Index extends MY_Controller {
         $this->load->view('chat',$data);
     }
 
+    public function wxchat(){
+        $this->load->view('login.html');
+    }
 
-
-
+    public function wxchat_in(){
+        $name = $this->input->post('username');
+        if(!$name || $name == "我说"){
+            redirect(site_url('/index/wxchat'));
+        }
+        $data['name'] = $name;
+        $this->load->view('chat.html',$data);
+    }
 }
